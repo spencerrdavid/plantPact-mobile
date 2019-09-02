@@ -42,7 +42,7 @@ class ProfileSignUpScreen extends React.Component {
     userDetails = {
       picture: this.state.picture,
     }
-    this.props.storeUserProfile(userDetails)
+    // this.props.storeUserProfile(userDetails)
     this.props.navigation.navigate('Main')
   }
 

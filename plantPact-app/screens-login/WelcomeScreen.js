@@ -1,25 +1,16 @@
 import React from 'react'
-import { StyleSheet, View, Image, Dimensions, TouchableOpacity } from 'react-native'
-import { Button, Text, SocialIcon } from 'react-native-elements'
+import { StyleSheet, View, Image, TouchableOpacity } from 'react-native'
+import { Button, Text } from 'react-native-elements'
 import {connect} from 'react-redux'
 
-import {fbLoginAction} from '../redux/actions'
-import {facebookLogIn} from '../api'
-
-class WelcomeScreen extends React.Component {
+export default class WelcomeScreen extends React.Component {
 
   static navigationOptions = ({navigation}) => ({
     header: null,
   })
 
-  fbLogIn = async () => {
-    const token = await facebookLogIn()
-    await this.props.fbLoginAction(token)
-    this.props.token && this.props.navigation.navigate('Main')
-  }
-
   navigateToOptions = () => {
-    this.props.navigation.push('SignUp')
+    this.props.navigation.navigate('SignUp')
   }
 
   navigateToLogin = () => {
@@ -29,25 +20,24 @@ class WelcomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={styles.body}>
+        <View style={styles.top}>
           <Image
             source={require('../assets/logo.png')}
             style={styles.logo}
           />
-          <Text h3>Welcome to PlantPact</Text>
-          <Text>Vegan wholefoods warehouse</Text>
         </View>
-        <View style={styles.footer}>
-          <SocialIcon
-            title="Sign in with Facebook"
-            button
-            type='facebook'
-            onPress={this.fbLogIn}
-            style={{width: 250}}
+        <View style={styles.middle}>
+          <Text h3>Wholefoods warehouse</Text>
+          <Button
+            title="Get Started"
+            type='outline'
+            onPress={this.navigateToOptions}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
           />
-          <TouchableOpacity onPress={this.navigateToOptions}>
-            <Text style={styles.options}>More Options</Text>
-          </TouchableOpacity>
+          <View style={{height: 100}}/>
+        </View>
+        <View style={styles.bottom}>
           <View style={styles.divider}/>
           <Text>Have an account?</Text>
           <TouchableOpacity onPress={this.navigateToLogin}>
@@ -65,27 +55,29 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
   },
-  banner: {
-    flex: 0.35,
-    width: Dimensions.get('window').width,
-  },
-  body: {
-    flex: 0.4,
+  top: {
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },
-  footer: {
-    flex: 0.25,
+  middle: {
+    flex: 4,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
+  bottom: {
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   logo: {
-    width: 200,
+    width: 300,
     resizeMode: 'contain',
   },
-  options: {
-    color: '#2b4116',
-    textDecorationLine: 'underline',
+  button: {
+    width: 250,
+    borderColor: '#2b4116',
+    borderWidth: 1,
   },
   divider: {
     width: 200,
@@ -96,10 +88,3 @@ const styles = StyleSheet.create({
     color: '#2b4116',
   },
 })
-
-const mapStateToProps = state => ({
-  err: state.user.loginErr,
-  token: state.user.token,
-})
-
-export default connect(mapStateToProps, {fbLoginAction})(WelcomeScreen)

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native'
 import { Button, Text, Input, SocialIcon } from 'react-native-elements'
 import {connect} from 'react-redux'
@@ -44,7 +44,8 @@ class SignUpOptionsScreen extends React.Component {
             source={require('../assets/logo.png')}
             style={styles.logo}
           />
-          <Text h3>Sign up</Text>
+        </View>
+        <View style={styles.middle}>
           <SocialIcon
             title="Sign up with Facebook"
             button
@@ -59,8 +60,6 @@ class SignUpOptionsScreen extends React.Component {
             onPress={this.googleLogIn}
             style={styles.google}
           />
-        </View>
-        <View style={styles.bottom}>
           <Button
             icon={{ name: 'email', size: 15, color: '#2b4116' }}
             title="   Sign up with Email"
@@ -69,11 +68,15 @@ class SignUpOptionsScreen extends React.Component {
             titleStyle={{color: '#2b4116'}}
             buttonStyle={styles.button}
           />
+          <View style={{height: 50}}/>
+        </View>
+        <View style={styles.bottom}>
           <View style={styles.divider}/>
           <Text>Have an account?</Text>
           <TouchableOpacity onPress={this.navigateToLogin}>
             <Text style={styles.login}>Login</Text>
           </TouchableOpacity>
+          <View style={{height: 10}}/>
         </View>
       </View>
     )
@@ -84,35 +87,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   top: {
-    flex: 0.7,
+    flex: 3,
     alignItems: 'center',
     justifyContent: 'center',
   },
+  middle: {
+    flex: 4,
+    alignItems: 'center',
+    justifyContent: 'space-around',
+  },
   bottom: {
-    flex: 0.2,
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'space-around',
   },
   logo: {
-    width: 150,
-    resizeMode: 'contain'
+    width: 300,
+    resizeMode: 'contain',
   },
   google: {
     width: 250,
     backgroundColor: '#fb5c4a',
   },
-  divider: {
-    width: 250,
-    borderBottomColor: '#d3d3d3',
-    borderBottomWidth: 1,
-  },
   button: {
     width: 250,
     borderColor: '#2b4116',
     borderWidth: 1,
+  },
+  divider: {
+    width: 200,
+    borderBottomColor: '#d3d3d3',
+    borderBottomWidth: 1,
   },
   login: {
     color: '#2b4116',

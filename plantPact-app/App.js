@@ -61,16 +61,11 @@ const SignUpStack = createStackNavigator(
   }
 )
 
-const WelcomeStack = createStackNavigator(
+const WelcomeStack = createSwitchNavigator(
   {
     Welcome: WelcomeScreen,
     SignUp: SignUpStack,
   },
-  {
-    initialRouteName: 'Welcome',
-    headerMode: 'none',
-    headerLayoutPreset: 'center',
-  }
 )
 
 const MainTabs = createBottomTabNavigator(
