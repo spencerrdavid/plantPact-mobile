@@ -11,6 +11,7 @@ class ProductDetailsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Text style={styles.text}>Detailed product description</Text>
+        <Text style={styles.text}>Price per 500g: £0.00</Text>
       </View>
     )
   }
