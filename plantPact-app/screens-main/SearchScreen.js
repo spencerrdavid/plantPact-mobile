@@ -4,6 +4,7 @@ import Constants from 'expo-constants'
 import { Button, Icon, SearchBar, Text } from 'react-native-elements'
 import {connect} from 'react-redux'
 
+import ProductList from '../components/ProductList'
 import {getProductData} from '../api'
 import {
   updateBeans,
@@ -66,8 +67,8 @@ class SearchScreen extends React.Component {
     this.props.showProducts(this.props[category])
   }
 
-  showProductDetails = () => {
-    this.props.navigation.push('Details', {search: this.state.search})
+  showProductDetails = (product) => {
+    this.props.navigation.push('Details', product)
   }
 
   render() {
@@ -83,36 +84,36 @@ class SearchScreen extends React.Component {
             onSubmitEditing={this.handleSearch}
           />
         </View>
-        <Button
-          title="Nuts"
-          type='outline'
-          onPress={() => this.updateProducts('nuts')}
-          titleStyle={{color: 'white'}}
-          buttonStyle={styles.button}
-        />
-        <Button
-          title="Beans and pulses"
-          type='outline'
-          onPress={() => this.updateProducts('beans')}
-          titleStyle={{color: 'white'}}
-          buttonStyle={styles.button}
-        />
-        <Button
-          title="Pasta and rice"
-          type='outline'
-          onPress={() => this.updateProducts('pasta')}
-          titleStyle={{color: 'white'}}
-          buttonStyle={styles.button}
-        />
         <View style={styles.center}>
           <Text h3 h3Style={styles.title}>Search wholefoods</Text>
           <Button
-            title="Product details"
-            onPress={this.showProductDetails}
-            titleStyle={{color: 'white'}}
+            title="Nuts"
+            type='outline'
+            onPress={() => this.updateProducts('nuts')}
+            titleStyle={{color: '#2b4116'}}
             buttonStyle={styles.button}
-            containerStyle={{padding: 20}}
           />
+          <Button
+            title="Beans and pulses"
+            type='outline'
+            onPress={() => this.updateProducts('beans')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
+            title="Pasta and rice"
+            type='outline'
+            onPress={() => this.updateProducts('pasta')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <View style={styles.list}>
+            <ProductList
+              data={this.props.productsDisplayed}
+              horizontal={true}
+              onSelectProduct={this.showProductDetails}
+            />
+          </View>
         </View>
       </View>
     )
@@ -137,12 +138,18 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     width: 250,
   },
+  list: {
+    height: 300,
+    width: 400,
+    borderWidth: 1,
+    borderColor: 'black',
+  },
   title: {
     textAlign: 'center',
   },
   button: {
-    width: 250,
-    backgroundColor: '#2b4116',
+    width: 200,
+    backgroundColor: 'white',
   },
 })
 
