@@ -81,7 +81,8 @@ class SearchScreen extends React.Component {
   }
 
   handleSelectProduct = (product) => {
-    this.productList.setSelectedCard(product.index)
+    // the next line causes a bug that crashes the app
+    // this.productList.setSelectedCard(product.index)
     this.productList.scrollToIndex(product.index - 1)
   }
 
@@ -103,14 +104,6 @@ class SearchScreen extends React.Component {
           />
         </View>
         <View style={styles.center}>
-          <Text>Search wholefoods</Text>
-          <Button
-            title="Nuts"
-            type='outline'
-            onPress={() => this.updateProducts('nuts')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
           <Button
             title="Beans and pulses"
             type='outline'
@@ -119,9 +112,44 @@ class SearchScreen extends React.Component {
             buttonStyle={styles.button}
           />
           <Button
+            title="Nuts"
+            type='outline'
+            onPress={() => this.updateProducts('nuts')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
+            title="Flour"
+            type='outline'
+            onPress={() => this.updateProducts('flour')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
             title="Pasta and rice"
             type='outline'
             onPress={() => this.updateProducts('pasta')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
+            title="Grains"
+            type='outline'
+            onPress={() => this.updateProducts('grains')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
+            title="Fruit"
+            type='outline'
+            onPress={() => this.updateProducts('fruit')}
+            titleStyle={{color: '#2b4116'}}
+            buttonStyle={styles.button}
+          />
+          <Button
+            title="Chocolate"
+            type='outline'
+            onPress={() => this.updateProducts('chocolate')}
             titleStyle={{color: '#2b4116'}}
             buttonStyle={styles.button}
           />
@@ -164,7 +192,8 @@ const styles = StyleSheet.create({
   },
   button: {
     width: 200,
-    backgroundColor: 'white',
+    height: 40,
+    borderColor: 'white',
   },
 })
 

@@ -8,9 +8,9 @@ export default class ProductCard extends React.Component {
     selected: false,
   }
 
-  setSelected(key) {
-    this.setState({selected: this.props.index === key})
-  }
+  // setSelected(key) {
+  //   this.setState({selected: this.props.index === key})
+  // }
 
   render() {
     return (
@@ -19,7 +19,7 @@ export default class ProductCard extends React.Component {
             <TouchableOpacity style={styles.imageContainer} activeOpacity={0.8} onPress={() => this.props.onSelectProduct(this.props)}>
               <Image source={{uri: this.props.image}} style={styles.image} />
             </TouchableOpacity>
-            <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.onSelectDetails(this.props)}>
+            <TouchableOpacity style={styles.infoContainer} activeOpacity={0.8} onPress={() => this.props.onSelectDetails(this.props)}>
               <Text style={styles.text}>{this.props.name}</Text>
             </TouchableOpacity>
           </View>
@@ -72,6 +72,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 4,
     borderTopRightRadius: 4,
     overflow: 'hidden',
+  },
+  infoContainer: {
+    width: 180,
+    height: 60,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   image: {
     width: 200,
