@@ -36,6 +36,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 200,
+    height: 200,
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
@@ -48,6 +49,8 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
   },
   selectedCard: {
+    width: 200,
+    height: 200,
     borderWidth: 2,
     borderColor: '#2b4116',
     borderRadius: 6,
@@ -77,5 +80,6 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 20,
+    textAlign: 'center',
   },
 })

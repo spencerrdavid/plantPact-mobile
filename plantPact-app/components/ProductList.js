@@ -9,8 +9,8 @@ export default class ProductList extends React.Component {
     this.cardRefs = []
   }
 
-  scrollToFront() {
-    this.flatListRef.scrollToIndex({animated: true, index: 0})
+  scrollToIndex(index) {
+    this.flatListRef.scrollToIndex({animated: true, index: index})
   }
 
   setSelectedCard(key) {

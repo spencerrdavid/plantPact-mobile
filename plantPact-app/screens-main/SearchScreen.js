@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Platform } from 'react-native'
+import { View, StyleSheet, Platform, Dimensions } from 'react-native'
 import Constants from 'expo-constants'
 import { Button, Icon, SearchBar, Text } from 'react-native-elements'
 import {connect} from 'react-redux'
@@ -17,6 +17,7 @@ import {
   showProducts,
 } from '../redux/actions'
 
+const screenWidth = Dimensions.get('window').width
 const os = Platform.select({
   ios: 'ios',
   android: 'android',
@@ -75,12 +76,13 @@ class SearchScreen extends React.Component {
           break
       }
     }
-    this.productList.scrollToFront()
     this.props.showProducts(this.props[category])
+    this.productList.scrollToIndex(0)
   }
 
   handleSelectProduct = (product) => {
     this.productList.setSelectedCard(product.index)
+    this.productList.scrollToIndex(product.index - 1)
   }
 
   showProductDetails = (product) => {
@@ -101,7 +103,7 @@ class SearchScreen extends React.Component {
           />
         </View>
         <View style={styles.center}>
-          <Text h3 h3Style={styles.title}>Search wholefoods</Text>
+          <Text>Search wholefoods</Text>
           <Button
             title="Nuts"
             type='outline'
@@ -157,13 +159,8 @@ const styles = StyleSheet.create({
     width: 250,
   },
   list: {
-    height: 300,
-    width: 400,
-    borderWidth: 1,
-    borderColor: 'black',
-  },
-  title: {
-    textAlign: 'center',
+    height: 230,
+    width: screenWidth,
   },
   button: {
     width: 200,
