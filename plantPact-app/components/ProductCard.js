@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, StyleSheet, Image, TouchableOpacity, Platform } from 'react-native'
+import { View, StyleSheet, Image, TouchableOpacity } from 'react-native'
 import { Text } from 'react-native-elements'
 
 export default class ProductCard extends React.Component {

@@ -50,18 +50,25 @@ class SearchScreen extends React.Component {
       switch (category) {
         case 'beans':
           this.props.updateBeans(data)
+          break
         case 'chocolate':
           this.props.updateChocolate(data)
+          break
         case 'flour':
           this.props.updateFlour(data)
+          break
         case 'fruit':
           this.props.updateFruit(data)
+          break
         case 'grains':
           this.props.updateGrains(data)
+          break
         case 'nuts':
           this.props.updateNuts(data)
+          break
         case 'pasta':
           this.props.updatePasta(data)
+          break
       }
     }
     this.props.showProducts(this.props[category])
