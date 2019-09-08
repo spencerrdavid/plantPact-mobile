@@ -9,6 +9,10 @@ export default class ProductList extends React.Component {
     this.cardRefs = []
   }
 
+  scrollToFront() {
+    this.flatListRef.scrollToIndex({animated: true, index: 0})
+  }
+
   setSelectedCard(key) {
     this.cardRefs.forEach(ref => ref.setSelected(key))
   }
@@ -23,6 +27,7 @@ export default class ProductList extends React.Component {
             <ProductCard
               {...item}
               onSelectProduct={this.props.onSelectProduct}
+              onSelectDetails={this.props.onSelectProductDetails}
               index={item.key}
               ref={(ProductCard) => {this.cardRefs[item.key] = ProductCard}}
             />

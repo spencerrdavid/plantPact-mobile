@@ -23,6 +23,10 @@ const os = Platform.select({
 })
 
 class SearchScreen extends React.Component {
+  constructor(props) {
+    super(props)
+    this.productList = React.createRef()
+  }
 
   static navigationOptions = ({navigation}) => ({
     header: null,
@@ -71,7 +75,12 @@ class SearchScreen extends React.Component {
           break
       }
     }
+    this.productList.scrollToFront()
     this.props.showProducts(this.props[category])
+  }
+
+  handleSelectProduct = (product) => {
+    this.productList.setSelectedCard(product.index)
   }
 
   showProductDetails = (product) => {
@@ -118,7 +127,9 @@ class SearchScreen extends React.Component {
             <ProductList
               data={this.props.productsDisplayed}
               horizontal={true}
-              onSelectProduct={this.showProductDetails}
+              onSelectProduct={this.handleSelectProduct}
+              onSelectProductDetails={this.showProductDetails}
+              ref={productList => {this.productList = productList}}
             />
           </View>
         </View>

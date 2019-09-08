@@ -15,14 +15,14 @@ export default class ProductCard extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.onSelectProduct(this.props)}>
           <View style={this.state.selected ? styles.selectedCard : styles.card}>
-            <View style={styles.imageContainer}>
+            <TouchableOpacity style={styles.imageContainer} activeOpacity={0.8} onPress={() => this.props.onSelectProduct(this.props)}>
               <Image source={{uri: this.props.image}} style={styles.image} />
-            </View>
-            <Text style={styles.text}>{this.props.name}</Text>
+            </TouchableOpacity>
+            <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.onSelectDetails(this.props)}>
+              <Text style={styles.text}>{this.props.name}</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
       </View>
     )
   }
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   image: {
     width: 200,
     height: 140,
-    resizeMode: 'cover',
+    resizeMode: 'contain',
   },
   text: {
     fontSize: 20,
