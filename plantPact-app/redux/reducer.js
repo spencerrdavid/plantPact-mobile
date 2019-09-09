@@ -11,6 +11,15 @@ import {
   NAME_SIGNUP,
   EMAIL_SIGNUP,
   SIGNUP_CREATE_ACCOUNT,
+  UPDATE_BEANS,
+  UPDATE_CHOCOLATE,
+  UPDATE_FLOUR,
+  UPDATE_FRUIT,
+  UPDATE_GRAINS,
+  UPDATE_NUTS,
+  UPDATE_PASTA,
+  UPDATE_SELECTED,
+  UPDATE_BASKET,
 } from './actions'
 
 const initialState = {
@@ -23,12 +32,22 @@ const initialState = {
     lastName: '',
     email: '',
     password: '',
-    },
+  },
   profile: {
     picture: null,
   },
   data: {
-    products: [],
+    beans: [],
+    chocolate: [],
+    flour: [],
+    fruit: [],
+    grains: [],
+    nuts: [],
+    pasta: [],
+  },
+  session: {
+    selectedProduct: '',
+    basket: [],
   },
 }
 
@@ -63,9 +82,51 @@ const signUpReducer = (state = initialState.signUp, action) => {
   }
 }
 
+const profileReducer = (state = initialState.profile, action) => {
+  switch (action.type) {
+    default:
+      return state
+  }
+}
+
+const productsReducer = (state = initialState.data, action) => {
+  switch (action.type) {
+    case UPDATE_BEANS:
+      return { ...state, beans: action.payload }
+    case UPDATE_CHOCOLATE:
+      return { ...state, chocolate: action.payload }
+    case UPDATE_FLOUR:
+      return { ...state, flour: action.payload }
+    case UPDATE_FRUIT:
+      return { ...state, fruit: action.payload }
+    case UPDATE_GRAINS:
+      return { ...state, grains: action.payload }
+    case UPDATE_NUTS:
+      return { ...state, nuts: action.payload }
+    case UPDATE_PASTA:
+      return { ...state, pasta: action.payload }
+    default:
+      return state
+  }
+}
+
+const sessionReducer = (state = initialState.session, action) => {
+  switch (action.type) {
+    case UPDATE_SELECTED:
+      return { ...state, selectedProduct: action.payload }
+    case UPDATE_BASKET:
+      return { ...state, basket: action.payload }
+    default:
+      return state
+  }
+}
+
 const appReducer = combineReducers({
   user: userReducer,
   signUp: signUpReducer,
+  profile: profileReducer,
+  data: productsReducer,
+  session: sessionReducer,
 })
 
 const reducer = (state, action) => {

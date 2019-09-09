@@ -65,3 +65,44 @@ export const facebookLogIn = async () => {
     Alert.alert(`Facebook Login Error: ${message}`)
   }
 }
+
+// DATA FETCHING FUNCTIONS
+export const getProductData = async (category) => {
+  const url = 'https://demo7341159.mockable.io/' + category
+  const response = await fetch(url)
+  switch (category) {
+    case 'beans':
+      const {beans} = await response.json()
+      return beans.map(processProducts)
+    case 'chocolate':
+      const {chocolate} = await response.json()
+      return chocolate.map(processProducts)
+    case 'flour':
+      const {flour} = await response.json()
+      return flour.map(processProducts)
+    case 'fruit':
+      const {fruit} = await response.json()
+      return fruit.map(processProducts)
+    case 'grains':
+      const {grains} = await response.json()
+      return grains.map(processProducts)
+    case 'nuts':
+      const {nuts} = await response.json()
+      return nuts.map(processProducts)
+    case 'pasta':
+      const {pasta} = await response.json()
+      return pasta.map(processProducts)
+    default:
+      return "error!"
+  }
+}
+
+const processProducts = (product) => ({
+  key: `${product.id}`,
+  code: `${product.code}`,
+  name: `${product.name}`,
+  image: `${product.image}`,
+  description: `${product.description}`,
+  ingredients: `${product.ingredients}`,
+  price: `${product.price}`,
+})
