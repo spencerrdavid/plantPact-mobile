@@ -17,7 +17,6 @@ export const UPDATE_FRUIT = 'UPDATE_FRUIT'
 export const UPDATE_GRAINS = 'UPDATE_GRAINS'
 export const UPDATE_NUTS = 'UPDATE_NUTS'
 export const UPDATE_PASTA = 'UPDATE_PASTA'
-export const SHOW_PRODUCTS = 'SHOW_PRODUCTS'
 
 // action creators
 export const storeNames = (names) => ({
@@ -65,10 +64,6 @@ export const updateNuts = (update) => ({
 export const updatePasta = (update) => ({
   type: UPDATE_PASTA,
   payload: update,
-})
-export const showProducts = (products) => ({
-  type: SHOW_PRODUCTS,
-  payload: products,
 })
 
 // async action creators

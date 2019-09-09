@@ -7,7 +7,7 @@
       "code": "5001",
       "name": "Raisins",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/1703_Lexia_Raisins_web.png",
-      "description": "Seedless raisins.",
+      "description": "Seedless raisins",
       "ingredients": "raisins, sunflower oil",
       "price": "1.40"
     },
@@ -16,7 +16,7 @@
       "code": "5002",
       "name": "Sultanas",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/sultana.png",
-      "description": "Seedless sultana raisins.",
+      "description": "Seedless sultana raisins",
       "ingredients": "sultana raisins, sunflower oil",
       "price": "1.50"
     },
@@ -25,7 +25,7 @@
       "code": "5003",
       "name": "Dried cranberries",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0000s_0028_BB_150611-1724_0052_HiRes_AB2.png",
-      "description": "Dried cranberries.",
+      "description": "Dried cranberries",
       "ingredients": "cranberries, sunflower oil",
       "price": "3.40"
     },
@@ -34,7 +34,7 @@
       "code": "5004",
       "name": "Chopped dates",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/BB_150910-1715-0287.png",
-      "description": "Chopped, dried dates.",
+      "description": "Chopped, dried dates",
       "ingredients": "dates, dextrose",
       "price": "3.35"
     },
@@ -52,7 +52,7 @@
       "code": "5006",
       "name": "Goji berries",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/402001756_Goji-Berries_cluster.png",
-      "description": "Dried goji berries.",
+      "description": "Dried goji berries",
       "ingredients": "goji berries",
       "price": "6.60"
     }

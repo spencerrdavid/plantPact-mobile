@@ -7,7 +7,7 @@
       "code": "4001",
       "name": "Rolled oats",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0019_BB_150313-1535_4530_HiRes_v3.png",
-      "description": "Large rolled whole grain oat flakes.",
+      "description": "Large rolled whole grain oat flakes",
       "ingredients": "whole grain oats",
       "price": "1.00"
     },
@@ -16,7 +16,7 @@
       "code": "4002",
       "name": "Porridge oats",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/BB_150910-2308-0285.png",
-      "description": "Whole grain oat flakes, perfect for porridge.",
+      "description": "Whole grain oat flakes, perfect for porridge",
       "ingredients": "whole grain oats",
       "price": "1.00"
     },
@@ -25,7 +25,7 @@
       "code": "4003",
       "name": "Buckwheat flakes",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/3199_Organic_Buckwheat_Flakes_01.png",
-      "description": "Buckwheat flakes.",
+      "description": "Buckwheat flakes",
       "ingredients": "buckwheat",
       "price": "1.30"
     },
@@ -34,7 +34,7 @@
       "code": "4004",
       "name": "Couscous",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0010_1542_Couscous_WEB.png",
-      "description": "Couscous.",
+      "description": "Couscous",
       "ingredients": "durum wheat semolina",
       "price": "1.10"
     },
@@ -43,7 +43,7 @@
       "code": "4005",
       "name": "Bulgur wheat",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0009_1543_Bulgur_Wheat_Med_WEB.png",
-      "description": "Bulgur wheat.",
+      "description": "Bulgur wheat",
       "ingredients": "bulgur wheat",
       "price": "1.40"
     },
@@ -52,7 +52,7 @@
       "code": "4006",
       "name": "Spelt flakes",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0015_1525_Organic_Spelt_Flakes_WEB.png",
-      "description": "Spelt flakes.",
+      "description": "Spelt flakes",
       "ingredients": "spelt",
       "price": "1.70"
     }

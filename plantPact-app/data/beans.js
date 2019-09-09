@@ -7,7 +7,7 @@
       "code": "0001",
       "name": "Red kidney beans",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/BB_150910-0407-0265.png",
-      "description": "Dried dark red kidney beans.",
+      "description": "Dried dark red kidney beans",
       "ingredients": "red kidney beans",
       "price": "1.00"
     },
@@ -16,7 +16,7 @@
       "code": "0002",
       "name": "Pinto beans",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0000s_0010_BB_141119-0402-3270_HiRes_AB3.png",
-      "description": "Dried pinto beans.",
+      "description": "Dried pinto beans",
       "ingredients": "pinto beans",
       "price": "1.00"
     },
@@ -25,7 +25,7 @@
       "code": "0003",
       "name": "Chickpeas",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0000s_0008_BB_141119-0414-3247_HiRes.png",
-      "description": "Dried chickpeas.",
+      "description": "Dried chickpeas",
       "ingredients": "chickpeas",
       "price": "1.00"
     },
@@ -34,7 +34,7 @@
       "code": "0004",
       "name": "Green lentils",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/_0004_BB_150313-0416_4454_HiRes.png",
-      "description": "Green lentils.",
+      "description": "Green lentils",
       "ingredients": "green lentils",
       "price": "1.10"
     },
@@ -52,7 +52,7 @@
       "code": "0006",
       "name": "Yellow split peas",
       "image": "http://www.bulkbarn.ca/app_themes/BulkBarn/Images/assets/products/full/BB_150910-0412-0261.png",
-      "description": "Yellow split peas.",
+      "description": "Yellow split peas",
       "ingredients": "yellow split peas",
       "price": "0.80"
     }

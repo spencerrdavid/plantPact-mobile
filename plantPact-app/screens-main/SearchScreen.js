@@ -17,6 +17,7 @@ import {
   showProducts,
 } from '../redux/actions'
 
+const categories = ['beans', 'nuts', 'flour', 'pasta', 'grains', 'fruit', 'chocolate']
 const screenWidth = Dimensions.get('window').width
 const os = Platform.select({
   ios: 'ios',
@@ -26,6 +27,7 @@ const os = Platform.select({
 class SearchScreen extends React.Component {
   constructor(props) {
     super(props)
+    this.loadData()
     this.productList = React.createRef()
   }
 
@@ -36,6 +38,7 @@ class SearchScreen extends React.Component {
   })
 
   state = {
+    productList: '',
     search: '',
   }
 
@@ -49,35 +52,50 @@ class SearchScreen extends React.Component {
     }
   }
 
-  updateProducts = async (category) => {
-    if (this.props[category].length === 0) {
-      const data = await getProductData(category)
-      switch (category) {
-        case 'beans':
-          this.props.updateBeans(data)
-          break
-        case 'chocolate':
-          this.props.updateChocolate(data)
-          break
-        case 'flour':
-          this.props.updateFlour(data)
-          break
-        case 'fruit':
-          this.props.updateFruit(data)
-          break
-        case 'grains':
-          this.props.updateGrains(data)
-          break
-        case 'nuts':
-          this.props.updateNuts(data)
-          break
-        case 'pasta':
-          this.props.updatePasta(data)
-          break
-      }
+  loadData = () => {
+    categories.forEach(category => this.getData(category))
+  }
+
+  getData = async (category) => {
+    switch (category) {
+      case 'beans':
+        const beans = await getProductData(category)
+        this.props.updateBeans(beans)
+        break
+      case 'chocolate':
+        const chocolate = await getProductData(category)
+        this.props.updateChocolate(chocolate)
+        break
+      case 'flour':
+        const flour = await getProductData(category)
+        this.props.updateFlour(flour)
+        break
+      case 'fruit':
+        const fruit = await getProductData(category)
+        this.props.updateFruit(fruit)
+        break
+      case 'grains':
+        const grains = await getProductData(category)
+        this.props.updateGrains(grains)
+        break
+      case 'nuts':
+        const nuts = await getProductData(category)
+        this.props.updateNuts(nuts)
+        break
+      case 'pasta':
+        const pasta = await getProductData(category)
+        this.props.updatePasta(pasta)
+        break
+      default:
+        return
     }
-    this.props.showProducts(this.props[category])
-    this.productList.scrollToIndex(0)
+  }
+
+  updateProducts = (category) => {
+    if (this.state.productList.length > 0) {
+      this.productList.scrollToIndex(0)
+    }
+    this.setState({productList: category})
   }
 
   handleSelectProduct = (product) => {
@@ -154,13 +172,69 @@ class SearchScreen extends React.Component {
             buttonStyle={styles.button}
           />
           <View style={styles.list}>
-            <ProductList
-              data={this.props.productsDisplayed}
-              horizontal={true}
-              onSelectProduct={this.handleSelectProduct}
-              onSelectProductDetails={this.showProductDetails}
-              ref={productList => {this.productList = productList}}
-            />
+            {this.state.productList === 'beans' &&
+              <ProductList
+                data={this.props.beans}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'chocolate' &&
+              <ProductList
+                data={this.props.chocolate}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'flour' &&
+              <ProductList
+                data={this.props.flour}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'fruit' &&
+              <ProductList
+                data={this.props.fruit}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'grains' &&
+              <ProductList
+                data={this.props.grains}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'nuts' &&
+              <ProductList
+                data={this.props.nuts}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
+            {this.state.productList === 'pasta' &&
+              <ProductList
+                data={this.props.pasta}
+                horizontal={true}
+                onSelectProduct={this.handleSelectProduct}
+                onSelectProductDetails={this.showProductDetails}
+                ref={productList => {this.productList = productList}}
+              />
+            }
           </View>
         </View>
       </View>
@@ -205,7 +279,6 @@ const mapStateToProps = state => ({
   grains: state.data.grains,
   nuts: state.data.nuts,
   pasta: state.data.pasta,
-  productsDisplayed: state.data.productsDisplayed,
 })
 
 export default connect(mapStateToProps, {

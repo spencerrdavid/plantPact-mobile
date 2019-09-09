@@ -19,10 +19,16 @@ class ProductDetailsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={{uri: this.props.navigation.getParam('image')}} style={styles.image} />
-        <Text style={styles.text}>{this.props.navigation.getParam('description')}</Text>
-        <Text style={styles.text}>Price (/500g): £{this.props.navigation.getParam('price')}</Text>
-        <Text style={styles.text}>{this.props.navigation.getParam('code')}</Text>
-        <Text style={styles.text}>Ingredients: {this.props.navigation.getParam('ingredients')}</Text>
+        <View style={{height: 20}}/>
+        <View style={styles.infoBox}>
+          <View style={styles.textBox}>
+            <Text style={styles.title}>{this.props.navigation.getParam('description')}</Text>
+            <View style={{height: 20}}/>
+            <Text style={styles.text}>£{this.props.navigation.getParam('price')} per 500g</Text>
+            <Text style={styles.text}>Ingredients: {this.props.navigation.getParam('ingredients')}</Text>
+            <Text style={styles.text}>Product code: {this.props.navigation.getParam('code')}</Text>
+          </View>
+        </View>
       </View>
     )
   }
@@ -40,8 +46,28 @@ const styles = StyleSheet.create({
     height: 400,
     resizeMode: 'contain',
   },
+  infoBox: {
+    width: screenWidth - 40,
+    borderWidth: 2,
+    borderColor: '#2b4116',
+    borderRadius: 6,
+    backgroundColor : 'white',
+    shadowOffset: { width: 5, height: 5 },
+    shadowRadius: 6,
+    shadowOpacity: 0.2,
+    elevation: 3,
+    borderRadius: 6,
+    paddingBottom: 2,
+  },
+  textBox: {
+    padding: 20,
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
   text: {
-    textAlign: "center"
+
   },
 })
 

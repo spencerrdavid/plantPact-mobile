@@ -18,7 +18,6 @@ import {
   UPDATE_GRAINS,
   UPDATE_NUTS,
   UPDATE_PASTA,
-  SHOW_PRODUCTS,
 } from './actions'
 
 const initialState = {
@@ -43,7 +42,6 @@ const initialState = {
     grains: [],
     nuts: [],
     pasta: [],
-    productsDisplayed: [],
   },
 }
 
@@ -101,8 +99,6 @@ const productsReducer = (state = initialState.data, action) => {
       return { ...state, nuts: action.payload }
     case UPDATE_PASTA:
       return { ...state, pasta: action.payload }
-    case SHOW_PRODUCTS:
-      return { ...state, productsDisplayed: action.payload }
     default:
       return state
   }
