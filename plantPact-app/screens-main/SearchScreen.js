@@ -122,55 +122,57 @@ class SearchScreen extends React.Component {
           />
         </View>
         <View style={styles.center}>
-          <Button
-            title="Beans and pulses"
-            type='outline'
-            onPress={() => this.updateProducts('beans')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Nuts"
-            type='outline'
-            onPress={() => this.updateProducts('nuts')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Flour"
-            type='outline'
-            onPress={() => this.updateProducts('flour')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Pasta and rice"
-            type='outline'
-            onPress={() => this.updateProducts('pasta')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Grains"
-            type='outline'
-            onPress={() => this.updateProducts('grains')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Fruit"
-            type='outline'
-            onPress={() => this.updateProducts('fruit')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
-          <Button
-            title="Chocolate"
-            type='outline'
-            onPress={() => this.updateProducts('chocolate')}
-            titleStyle={{color: '#2b4116'}}
-            buttonStyle={styles.button}
-          />
+          <View style={styles.buttons}>
+            <Button
+              title="Beans and pulses"
+              type='outline'
+              onPress={() => this.updateProducts('beans')}
+              titleStyle={this.state.productList === 'beans' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Nuts"
+              type='outline'
+              onPress={() => this.updateProducts('nuts')}
+              titleStyle={this.state.productList === 'nuts' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Flour"
+              type='outline'
+              onPress={() => this.updateProducts('flour')}
+              titleStyle={this.state.productList === 'flour' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Pasta and rice"
+              type='outline'
+              onPress={() => this.updateProducts('pasta')}
+              titleStyle={this.state.productList === 'pasta' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Grains"
+              type='outline'
+              onPress={() => this.updateProducts('grains')}
+              titleStyle={this.state.productList === 'grains' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Fruit"
+              type='outline'
+              onPress={() => this.updateProducts('fruit')}
+              titleStyle={this.state.productList === 'fruit' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+            <Button
+              title="Chocolate"
+              type='outline'
+              onPress={() => this.updateProducts('chocolate')}
+              titleStyle={this.state.productList === 'chocolate' ? styles.selectedButtonText : styles.ButtonText}
+              buttonStyle={styles.button}
+            />
+          </View>
           <View style={styles.list}>
             {this.state.productList === 'beans' &&
               <ProductList
@@ -258,16 +260,29 @@ const styles = StyleSheet.create({
     flex: 6,
     alignItems: 'center',
     justifyContent: 'flex-start',
-    width: 250,
+  },
+  buttons: {
+    width: screenWidth - 20,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
   },
   list: {
     height: 230,
     width: screenWidth,
   },
   button: {
-    width: 200,
     height: 40,
     borderColor: 'white',
+    paddingLeft: 25,
+    paddingRight: 25,
+    backgroundColor: '#a9a9a9',
+  },
+  ButtonText: {
+    color: '#2b4116'
+  },
+  selectedButtonText: {
+    color: '#2b4116',
+    fontWeight: 'bold'
   },
 })
 

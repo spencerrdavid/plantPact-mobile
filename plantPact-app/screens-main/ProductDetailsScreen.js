@@ -19,11 +19,11 @@ class ProductDetailsScreen extends React.Component {
     return (
       <View style={styles.container}>
         <Image source={{uri: this.props.navigation.getParam('image')}} style={styles.image} />
-        <View style={{height: 20}}/>
+        <View style={{height: 5}}/>
         <View style={styles.infoBox}>
           <View style={styles.textBox}>
             <Text style={styles.title}>{this.props.navigation.getParam('description')}</Text>
-            <View style={{height: 20}}/>
+            <View style={{height: 5}}/>
             <Text style={styles.text}>£{this.props.navigation.getParam('price')} per 500g</Text>
             <Text style={styles.text}>Ingredients: {this.props.navigation.getParam('ingredients')}</Text>
             <Text style={styles.text}>Product code: {this.props.navigation.getParam('code')}</Text>
@@ -36,14 +36,13 @@ class ProductDetailsScreen extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Constants.statusBarHeight,
     flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-start',
   },
   image: {
     width: screenWidth - 10,
-    height: 400,
+    height: 330,
     resizeMode: 'contain',
   },
   infoBox: {
@@ -60,7 +59,7 @@ const styles = StyleSheet.create({
     paddingBottom: 2,
   },
   textBox: {
-    padding: 20,
+    padding: 18,
   },
   title: {
     fontSize: 20,
