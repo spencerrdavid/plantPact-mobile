@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
 })
 
 const mapStateToProps = state => ({
-
+  
 })
 
 export default connect(mapStateToProps)(ProductDetailsScreen)

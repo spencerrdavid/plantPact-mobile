@@ -8,9 +8,9 @@ export default class ProductCard extends React.Component {
     selected: false,
   }
 
-  // setSelected(key) {
-  //   this.setState({selected: this.props.index === key})
-  // }
+  setSelected(key) {
+    this.setState({selected: this.props.index === key})
+  }
 
   render() {
     return (
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
   },
   card: {
     width: 200,
-    height: 200,
+    height: 170,
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   selectedCard: {
     width: 200,
-    height: 200,
+    height: 170,
     borderWidth: 2,
     borderColor: '#2b4116',
     borderRadius: 6,
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   imageContainer: {
     width: 200,
-    height: 140,
+    height: 120,
     alignItems: 'center',
     justifyContent: 'flex-start',
     borderBottomLeftRadius: 0,
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   },
   infoContainer: {
     width: 200,
-    height: 60,
+    height: 50,
     alignItems: 'center',
     justifyContent: 'center',
     borderBottomLeftRadius: 6,
@@ -87,11 +87,11 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 200,
-    height: 140,
+    height: 120,
     resizeMode: 'contain',
   },
   text: {
-    fontSize: 20,
+    fontSize: 16,
     textAlign: 'center',
     color: 'white',
     padding: 5,

@@ -14,7 +14,8 @@ import {
   updateGrains,
   updateNuts,
   updatePasta,
-  showProducts,
+  updateSelected,
+  updateBasket,
 } from '../redux/actions'
 
 const categories = ['beans', 'nuts', 'flour', 'pasta', 'grains', 'fruit', 'chocolate']
@@ -96,15 +97,17 @@ class SearchScreen extends React.Component {
       this.productList.scrollToIndex(0)
     }
     this.setState({productList: category})
+    updateSelected('')
   }
 
   handleSelectProduct = (product) => {
-    // the next line causes a bug that crashes the app
-    // this.productList.setSelectedCard(product.index)
+    this.productList.setSelectedCard(product.index)
+    updateSelected(product.code)
     this.productList.scrollToIndex(product.index - 1)
   }
 
   showProductDetails = (product) => {
+    this.handleSelectProduct(product)
     this.props.navigation.push('Details', product)
   }
 
@@ -117,8 +120,11 @@ class SearchScreen extends React.Component {
             onChangeText={this.updateSearch}
             value={this.state.search}
             platform={os}
-            returnKeyType="search"
+            returnKeyType='search'
             onSubmitEditing={this.handleSearch}
+            containerStyle={{height: 55}}
+            inputStyle={{fontSize: 16}}
+            cancelButtonProps={{buttonTextStyle: {fontSize: 16}, color: 'black'}}
           />
         </View>
         <View style={styles.center}>
@@ -128,49 +134,49 @@ class SearchScreen extends React.Component {
               type='outline'
               onPress={() => this.updateProducts('beans')}
               titleStyle={this.state.productList === 'beans' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'beans' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Nuts"
               type='outline'
               onPress={() => this.updateProducts('nuts')}
               titleStyle={this.state.productList === 'nuts' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'nuts' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Flour"
               type='outline'
               onPress={() => this.updateProducts('flour')}
               titleStyle={this.state.productList === 'flour' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'flour' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Pasta and rice"
               type='outline'
               onPress={() => this.updateProducts('pasta')}
               titleStyle={this.state.productList === 'pasta' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'pasta' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Grains"
               type='outline'
               onPress={() => this.updateProducts('grains')}
               titleStyle={this.state.productList === 'grains' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'grains' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Fruit"
               type='outline'
               onPress={() => this.updateProducts('fruit')}
               titleStyle={this.state.productList === 'fruit' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'fruit' ? styles.selectedButton : styles.button}
             />
             <Button
               title="Chocolate"
               type='outline'
               onPress={() => this.updateProducts('chocolate')}
               titleStyle={this.state.productList === 'chocolate' ? styles.selectedButtonText : styles.ButtonText}
-              buttonStyle={styles.button}
+              buttonStyle={this.state.productList === 'chocolate' ? styles.selectedButton : styles.button}
             />
           </View>
           <View style={styles.list}>
@@ -272,17 +278,26 @@ const styles = StyleSheet.create({
   },
   button: {
     height: 40,
-    borderColor: 'white',
-    paddingLeft: 25,
-    paddingRight: 25,
-    backgroundColor: '#a9a9a9',
+    borderColor: '#2b4116',
+    paddingLeft: 23,
+    paddingRight: 23,
+    margin: 3,
+  },
+  selectedButton: {
+    height: 40,
+    borderColor: '#2b4116',
+    paddingLeft: 23,
+    paddingRight: 23,
+    margin: 3,
+    backgroundColor: '#2b4116',
   },
   ButtonText: {
-    color: '#2b4116'
+    color: '#2b4116',
+    fontSize: 16,
   },
   selectedButtonText: {
-    color: '#2b4116',
-    fontWeight: 'bold'
+    color: 'white',
+    fontSize: 16,
   },
 })
 
@@ -294,6 +309,7 @@ const mapStateToProps = state => ({
   grains: state.data.grains,
   nuts: state.data.nuts,
   pasta: state.data.pasta,
+  basket: state.session.basket,
 })
 
 export default connect(mapStateToProps, {
@@ -304,5 +320,6 @@ export default connect(mapStateToProps, {
   updateGrains,
   updateNuts,
   updatePasta,
-  showProducts,
+  updateSelected,
+  updateBasket,
 })(SearchScreen)

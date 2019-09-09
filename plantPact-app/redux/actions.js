@@ -17,6 +17,8 @@ export const UPDATE_FRUIT = 'UPDATE_FRUIT'
 export const UPDATE_GRAINS = 'UPDATE_GRAINS'
 export const UPDATE_NUTS = 'UPDATE_NUTS'
 export const UPDATE_PASTA = 'UPDATE_PASTA'
+export const UPDATE_SELECTED = 'UPDATE_SELECTED'
+export const UPDATE_BASKET = 'UPDATE_BASKET'
 
 // action creators
 export const storeNames = (names) => ({
@@ -63,6 +65,15 @@ export const updateNuts = (update) => ({
 })
 export const updatePasta = (update) => ({
   type: UPDATE_PASTA,
+  payload: update,
+})
+
+export const updateSelected = (update) => ({
+  type: UPDATE_SELECTED,
+  payload: update,
+})
+export const updateBasket = (update) => ({
+  type: UPDATE_BASKET,
   payload: update,
 })
 

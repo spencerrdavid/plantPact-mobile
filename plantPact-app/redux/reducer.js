@@ -18,6 +18,8 @@ import {
   UPDATE_GRAINS,
   UPDATE_NUTS,
   UPDATE_PASTA,
+  UPDATE_SELECTED,
+  UPDATE_BASKET,
 } from './actions'
 
 const initialState = {
@@ -42,6 +44,10 @@ const initialState = {
     grains: [],
     nuts: [],
     pasta: [],
+  },
+  session: {
+    selectedProduct: '',
+    basket: [],
   },
 }
 
@@ -104,11 +110,23 @@ const productsReducer = (state = initialState.data, action) => {
   }
 }
 
+const sessionReducer = (state = initialState.session, action) => {
+  switch (action.type) {
+    case UPDATE_SELECTED:
+      return { ...state, selectedProduct: action.payload }
+    case UPDATE_BASKET:
+      return { ...state, basket: action.payload }
+    default:
+      return state
+  }
+}
+
 const appReducer = combineReducers({
   user: userReducer,
   signUp: signUpReducer,
   profile: profileReducer,
   data: productsReducer,
+  session: sessionReducer,
 })
 
 const reducer = (state, action) => {
